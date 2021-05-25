@@ -44,7 +44,7 @@ static int wr_weakref_ref_acquire(wr_weakref_object *wref) /* {{{ */
 	if (wref->valid) {
 		if (wref->acquired == 0) {
 			// From now on we hold a proper reference
-			GC_REFCOUNT(wref->ref_obj)++;
+			GC_ADDREF(wref->ref_obj);
 		}
 		wref->acquired++;
 		return SUCCESS;
